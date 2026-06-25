@@ -1,3 +1,25 @@
+Release PWMS v1.1UI with UI Menu Hide & Time Fields Calculation & Row
+Date : 26-Jun-2026
+
+Files changed
+----------------
+index.html
+
+css/pwms.css
+components/header.html
+js/components.js
+js/auth.js
+js/config.js
+js/task-log.js
+
+pages/task-log.html
+
+
+
+=== === === === === ===
+
+=== === === === === ===
+
 Release : PWMS v1.0 Stable with URL path Logic..
 
 Date : 26-Jun-2026
