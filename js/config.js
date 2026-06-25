@@ -42,6 +42,22 @@ function appUrl(path) {
 
 
 
+function isMobile() {
+
+    return window.matchMedia(
+        "(max-width: 768px)"
+    ).matches;
+}
+
+
+function getDefaultLandingPage() {
+
+    return isMobile()
+        ? "/pages/task-log.html"
+        : "/pages/dashboard.html";
+}
+
+
 const APP_CONFIG = {
 
     APP_NAME: "PWMS 2",
