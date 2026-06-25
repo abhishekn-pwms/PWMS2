@@ -999,7 +999,12 @@ async function deleteTaskLog(id) {
     }
 }
 
-function calculateMinutes() {
+
+/* ==================================
+   v1.1UI TIME FIELDS CALCULATION
+================================== */
+
+function calculateTimeFields() {
 
     const start =
         document.getElementById(
@@ -1011,40 +1016,109 @@ function calculateMinutes() {
             "endTime"
         ).value;
 
-    if (
-        !start ||
-        !end
-    ) {
-        return;
-    }
-
-    const startDate =
-        new Date(
-            `2000-01-01T${start}`
-        );
-
-    const endDate =
-        new Date(
-            `2000-01-01T${end}`
-        );
-
     const minutes =
-        Math.round(
-            (endDate - startDate)
-            /
-            60000
+        parseInt(
+            document.getElementById(
+                "minutesSpent"
+            ).value || 0
         );
 
+
+
+    // -------------------------
+    // Start + End --> Minutes
+    // -------------------------
+
     if (
-        minutes >= 0
+        start &&
+        end
     ) {
+
+        const startDate =
+            new Date(
+                `2000-01-01T${start}`
+            );
+
+        const endDate =
+            new Date(
+                `2000-01-01T${end}`
+            );
 
         document.getElementById(
             "minutesSpent"
-        ).value =
-            minutes;
+        ).value = Math.round(
+            (endDate - startDate) / 60000
+        );
+
+        return;
     }
+
+
+
+    // -------------------------
+    // Start + Minutes --> End
+    // -------------------------
+
+    if (
+        start &&
+        minutes > 0 &&
+        !end
+    ) {
+
+        const startDate =
+            new Date(
+                `2000-01-01T${start}`
+            );
+
+        startDate.setMinutes(
+            startDate.getMinutes() +
+            minutes
+        );
+
+        document.getElementById(
+            "endTime"
+        ).value =
+            startDate
+                .toTimeString()
+                .substring(0, 5);
+
+        return;
+    }
+
+
+
+    // -------------------------
+    // End + Minutes --> Start
+    // -------------------------
+
+    if (
+        end &&
+        minutes > 0 &&
+        !start
+    ) {
+
+        const endDate =
+            new Date(
+                `2000-01-01T${end}`
+            );
+
+        endDate.setMinutes(
+            endDate.getMinutes() -
+            minutes
+        );
+
+        document.getElementById(
+            "startTime"
+        ).value =
+            endDate
+                .toTimeString()
+                .substring(0, 5);
+
+    }
+
 }
+
+
 
 document.addEventListener(
     "keydown",
