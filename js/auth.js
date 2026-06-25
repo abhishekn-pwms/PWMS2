@@ -21,7 +21,8 @@ async function login() {
 
             redirectTo:
                 window.location.origin +
-                appUrl("/pages/dashboard.html")
+                appUrl(getDefaultLandingPage())
+
         }
     });
 }
