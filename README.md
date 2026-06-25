@@ -1,4 +1,4 @@
-Release : PWMS v1.0 Stable
+Release : PWMS v1.0 Stable with URL path Logic..
 
 Date : 26-Jun-2026
 
@@ -23,4 +23,4 @@ Allowed Email Validation
 
 Deployment
 ----------
-Pending (Cloudflare)
+GitHub Pages
