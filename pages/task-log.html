@@ -339,45 +339,56 @@
 
             </div>
 
-            <div class="form-row">
 
-                <label>
-                    Minutes Spent
-                </label>
+<!--
+v1.1UI TIME FIELDS ROW
+-->
+<div
+    class="form-row time-row">
 
-                <input
-                    type="number"
-                    id="minutesSpent"
-                    min="0"
-                    value="0">
+    <div>
 
-            </div>
+        <label>
+            Start Time
+        </label>
 
-            <div class="form-row">
+        <input
+            type="time"
+            id="startTime"
+            onchange="calculateTimeFields()">
 
-                <label>
-                    Start Time
-                </label>
+    </div>
 
-                <input
-                    type="time"
-                    id="startTime"
-                    onchange="calculateMinutes()">
+    <div>
 
-            </div>
+        <label>
+            Minutes
+        </label>
 
-            <div class="form-row">
+        <input
+            type="number"
+            id="minutesSpent"
+            min="0"
+            value="0"
+            onchange="calculateTimeFields()">
 
-                <label>
-                    End Time
-                </label>
+    </div>
 
-                <input
-                    type="time"
-                    id="endTime"
-                    onchange="calculateMinutes()">
+    <div>
 
-            </div>
+        <label>
+            End Time
+        </label>
+
+        <input
+            type="time"
+            id="endTime"
+            onchange="calculateTimeFields()">
+
+    </div>
+
+</div>
+
 
             <div class="form-row"><label><input
                         type="checkbox"
