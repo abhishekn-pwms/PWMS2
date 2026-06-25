@@ -14,6 +14,27 @@ const APP_BASE = (() => {
 
 })();
 
+
+function initializeAppIcon() {
+
+    let favicon =
+        document.querySelector("link[rel='icon']");
+
+    if (!favicon) {
+
+        favicon =
+            document.createElement("link");
+
+        favicon.rel = "icon";
+
+        document.head.appendChild(favicon);
+    }
+
+    favicon.href =
+        APP_BASE + "/favicon.ico";
+}
+
+
 function appUrl(path) {
 
     return APP_BASE + path;
