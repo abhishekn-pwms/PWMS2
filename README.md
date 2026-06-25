@@ -24,3 +24,14 @@ Allowed Email Validation
 Deployment
 ----------
 GitHub Pages
+
+
+Deployment Notes
+--------------------
+Development
+  IIS / localhost
+  Site URL = localhost or LAN IP (eg. 192.168.1.8)
+
+Production
+  GitHub Pages
+  Site URL = GitHub Pages URL 'https://abhishekn-pwms.github.io/PWMS2'
