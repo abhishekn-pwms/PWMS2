@@ -60,20 +60,22 @@
 
     <script src="../js/app.js"></script>
 
+    <script>initializeAppIcon();</script>
 
-<script>
 
-document.addEventListener(
-    "DOMContentLoaded",
-    async () => {
+    <script>
 
-        await requireAuthentication();
+    document.addEventListener(
+        "DOMContentLoaded",
+        async () => {
 
-        await initializeLayout();
-    }
-);
+            await requireAuthentication();
 
-</script>
+            await initializeLayout();
+        }
+    );
+
+    </script>
 
 </body>
 
