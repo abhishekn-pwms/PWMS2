@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <title>
+        Task Log 1.1
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="../css/pwms.css">
+
+</head>
+
+<body>
+
+    <div class="app-layout">
+
+        <div id="header"></div>
+
+        <div id="sidebar"></div>
+
+        <div id="content">
+
+            <div class="page-header">
+
+                <div class="page-title">
+                    Task Log v1.1
+                </div>
+
+                <button
+                    class="btn btn-primary"
+                    onclick="newTaskLog()">
+
+                    + New Task Log
+
+                </button>
+
+            </div>
+
+            <div class="toolbar">
+
+                <input
+                    type="text"
+                    id="searchText"
+                    class="search-box"
+                    placeholder="Search Task Description..."
+                    onkeyup="renderTaskLogGrid()">
+
+                <select
+                    id="periodFilter"
+                    onchange="applyPeriodFilter()">
+
+                    <option value="This Week">
+                        This Week
+                    </option>
+
+                    <option value="Today">
+                        Today
+                    </option>
+
+                    <option value="This Month">
+                        This Month
+                    </option>
+
+                    <option value="All">
+                        All
+                    </option>
+
+                </select>
+
+                <input
+                    type="date"
+                    id="fromDate"
+                    onchange="renderTaskLogGrid()">
+
+                <input
+                    type="date"
+                    id="toDate"
+                    onchange="renderTaskLogGrid()">
+
+                <select
+                    id="activityStatusFilter"
+                    onchange="renderTaskLogGrid()">
+
+                </select>
+
+            </div>
+
+            <div
+                style="
+                    margin-bottom:10px;
+                    display:flex;
+                    gap:20px;
+                    font-size:14px;
+                    font-weight:bold;">
+
+                <div id="totalRecords">
+                    Total Records: 0
+                </div>
+
+                <div id="totalMinutes">
+                    Total Minutes: 0
+                </div>
+
+                <div id="totalHours">
+                    Total Hours: 0.0
+                </div>
+
+            </div>
+
+            <table
+                class="data-table">
+
+
+                <colgroup>
+
+                    <col style="width:9%">
+                    <col style="width:38%">
+                    <col style="width:18%">
+                    <col style="width:6%">
+                    <col style="width:6%">
+                    <col style="width:6%">
+                    <col style="width:17%">
+                    <col style="width:10%">
+
+                </colgroup>
+
+                <thead>
+
+                    <tr>
+
+                        <th>
+                            Date
+                        </th>
+
+                        <th>
+                            Task Description
+                        </th>
+
+                        <th>
+                            Activity
+                        </th>
+
+                        <th>
+                            Minutes
+                        </th>
+
+                        <th>
+                            Start
+                        </th>
+
+                        <th>
+                            End
+                        </th>
+
+                        <th>
+                            Context
+                        </th>
+
+                        <th>
+                            Actions
+                        </th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody
+                    id="taskLogGrid">
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+        <div id="footer"></div>
+
+    </div>
+
+    <div
+        id="taskLogModal"
+        class="modal">
+
+        <div
+            class="modal-content">
+
+            <h2>
+                Task Log
+            </h2>
+
+            <input
+                type="hidden"
+                id="taskLogId">
+
+            <div class="form-row">
+
+                <label>
+                    Task Date
+                </label>
+
+                <input
+                    type="date"
+                    id="taskDate">
+
+            </div>
+
+            <div class="form-row">
+
+                <label>
+                    Task Description
+                </label>
+
+                <textarea
+                    id="taskDescription"
+                    rows="1"
+                    maxlength="1000">
+
+                </textarea>
+
+                <small
+                    id="charCount">
+
+                    0 / 1000
+
+                </small>
+
+            </div>
+
+            <div class="form-row">
+
+                <label>
+                    Search Activity
+                </label>
+
+                <input
+                    type="text"
+                    id="activitySearch"
+                    placeholder="Search Activity..."
+                    onkeyup="filterActivities()">
+
+            </div>
+
+            <div class="form-row">
+
+                <label>
+                    Activity
+                </label>
+
+                <select
+                    id="activityId"
+                    onchange="activityChanged()">
+
+                </select>
+
+            </div>
+
+            <div class="form-row">
+
+                <label>
+                    Context
+                </label>
+
+                <div
+                    id="activityContext"
+                    style="
+                        padding:8px;
+                        background:#f8f9fa;
+                        border:1px solid #ddd;
+                        border-radius:4px;">
+
+                    Select Activity
+
+                </div>
+
+            </div>
+
+            <div
+                id="newActivitySection"
+                style="display:none;">
+
+                <hr>
+
+                <h3>
+                    New Activity
+                </h3>
+
+                <div class="form-row">
+
+                    <label>
+                        Activity Name
+                    </label>
+
+                    <input
+                        id="newActivityName">
+
+                </div>
+
+                <div class="form-row">
+
+                    <label>
+                        Milestone
+                    </label>
+
+                    <select
+                        id="newActivityMilestone">
+
+                    </select>
+
+                </div>
+
+                <div class="form-row">
+
+                    <label>
+                        Target Date
+                    </label>
+
+                    <input
+                        type="date"
+                        id="newActivityTargetDate">
+
+                </div>
+
+                <div class="form-row">
+
+                    <label>
+                        Priority
+                    </label>
+
+                    <select
+                        id="newActivityPriority">
+
+                    </select>
+
+                </div>
+
+            </div>
+
+            <div class="form-row">
+
+                <label>
+                    Minutes Spent
+                </label>
+
+                <input
+                    type="number"
+                    id="minutesSpent"
+                    min="0"
+                    value="0">
+
+            </div>
+
+            <div class="form-row">
+
+                <label>
+                    Start Time
+                </label>
+
+                <input
+                    type="time"
+                    id="startTime"
+                    onchange="calculateMinutes()">
+
+            </div>
+
+            <div class="form-row">
+
+                <label>
+                    End Time
+                </label>
+
+                <input
+                    type="time"
+                    id="endTime"
+                    onchange="calculateMinutes()">
+
+            </div>
+
+            <div class="form-row"><label><input
+                        type="checkbox"
+                        id="markActivityCompleted">Mark Activity Completed
+                </label>
+
+            </div>
+
+            <button
+                class="btn btn-primary"
+                onclick="saveTaskLog()">
+
+                Save
+
+            </button>
+
+            <button
+                class="btn btn-secondary"
+                onclick="closeModal('taskLogModal')">
+
+                Cancel
+
+            </button>
+
+        </div>
+
+    </div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <script src="../js/config.js"></script>
+    <script src="../js/supabase.js"></script>
+    <script src="../js/auth.js"></script>
+    <script src="../js/navigation.js"></script>
+    <script src="../js/components.js"></script>
+    <script src="../js/masters.js"></script>
+    <script src="../js/app.js"></script>
+    <script src="../js/task-log.js"></script>
+
+</body>
+
+</html>

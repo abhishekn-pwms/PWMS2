@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <title>
+        Milestone Master 2.1
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="../css/pwms.css">
+
+</head>
+
+<body>
+
+    <div class="app-layout">
+
+        <div id="header"></div>
+
+        <div id="sidebar"></div>
+
+        <div id="content">
+
+            <div class="page-header">
+
+                <div class="page-title">
+                    Milestone Master v2.1
+                </div>
+
+                <button
+                    class="btn btn-primary"
+                    onclick="newMilestone()">
+
+                    + New Milestone
+
+                </button>
+
+            </div>
+
+            <div class="toolbar">
+
+                <input
+                    type="text"
+                    id="searchText"
+                    class="search-box"
+                    placeholder="Search Milestone..."
+                    onkeyup="renderMilestoneGrid()">
+
+                <select
+                    id="statusFilter"
+                    onchange="renderMilestoneGrid()">
+
+                    <option
+                        value="Enabled"
+                        selected>
+
+                        Enabled
+
+                    </option>
+
+                    <option value="Disabled">
+
+                        Disabled
+
+                    </option>
+
+                    <option value="All">
+
+                        All
+
+                    </option>
+
+                </select>
+
+                <select
+                    id="milestoneStatusFilter"
+                    onchange="renderMilestoneGrid()">
+
+                </select>
+
+            </div>
+
+            <div
+                id="milestoneCount"
+                style="
+                    margin-bottom:10px;
+                    color:#666;
+                    font-size:14px;">
+
+            </div>
+
+            <table
+                class="data-table">
+
+                <thead>
+
+                    <tr>
+
+                        <th>
+                            Code
+                        </th>
+
+                        <th>
+                            Milestone
+                        </th>
+
+                        <th>
+                            Project
+                        </th>
+
+                        <th>
+                            Portfolio
+                        </th>
+
+                        <th>
+                            Status
+                        </th>
+
+                        <th>
+                            Start Date
+                        </th>
+
+                        <th>
+                            Target Date
+                        </th>
+
+                        <th>
+                            Enabled
+                        </th>
+
+                        <th>
+                            Updated
+                        </th>
+
+                        <th>
+                            Actions
+                        </th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody
+                    id="milestoneGrid">
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+        <div id="footer"></div>
+
+    </div>
+
+    <div
+        id="milestoneModal"
+        class="modal">
+
+        <div
+            class="modal-content">
+
+            <h2>
+                Milestone
+            </h2>
+
+            <input
+                type="hidden"
+                id="milestoneId">
+
+            <div class="form-row">
+
+                <label>
+                    Project
+                </label>
+
+                <select
+                    id="projectId">
+
+                </select>
+
+            </div>
+
+            <div class="form-row">
+
+                <label>
+                    Milestone Code
+                </label>
+
+                <input
+                    id="milestoneCode">
+
+            </div>
+
+            <div class="form-row">
+
+                <label>
+                    Milestone Name
+                </label>
+
+                <input
+                    id="milestoneName">
+
+            </div>
+
+            <div class="form-row">
+
+                <label>
+                    Description
+                </label>
+
+                <textarea
+                    id="description">
+
+                </textarea>
+
+            </div>
+
+            <div class="form-row">
+
+                <label>
+                    Start Date
+                </label>
+
+                <input
+                    type="date"
+                    id="startDate">
+
+            </div>
+
+            <div class="form-row">
+
+                <label>
+                    Target Date
+                </label>
+
+                <input
+                    type="date"
+                    id="targetDate">
+
+            </div>
+
+            <div class="form-row">
+
+                <label>
+                    Status
+                </label>
+
+                <select
+                    id="milestoneStatus">
+
+                </select>
+
+            </div>
+
+            <div class="form-row">
+
+                <label>
+
+                    <input
+                        type="checkbox"
+                        id="enabled"
+                        checked>
+
+                    Enabled
+
+                </label>
+
+            </div>
+
+            <button
+                class="btn btn-primary"
+                onclick="saveMilestone()">
+
+                Save
+
+            </button>
+
+            <button
+                class="btn btn-secondary"
+                onclick="closeModal('milestoneModal')">
+
+                Cancel
+
+            </button>
+
+        </div>
+
+    </div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <script src="../js/config.js"></script>
+    <script src="../js/supabase.js"></script>
+    <script src="../js/auth.js"></script>
+    <script src="../js/navigation.js"></script>
+    <script src="../js/components.js"></script>
+    <script src="../js/masters.js"></script>
+    <script src="../js/app.js"></script>
+    <script src="../js/milestone.js"></script>
+
+</body>
+
+</html>

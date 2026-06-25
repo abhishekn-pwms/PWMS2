@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <title>
+        Portfolio Master 1
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="../css/pwms.css">
+
+</head>
+
+<body>
+
+    <div class="app-layout">
+
+        <div id="header"></div>
+
+        <div id="sidebar"></div>
+
+        <div id="content">
+
+            <div class="page-header">
+
+                <div class="page-title">
+                    Portfolio Master v1
+                </div>
+
+                <button
+                    class="btn btn-primary"
+                    onclick="newPortfolio()">
+
+                    + New Portfolio
+
+                </button>
+
+            </div>
+
+            <div class="toolbar">
+
+                <input
+                    type="text"
+                    id="searchText"
+                    class="search-box"
+                    placeholder="Search Portfolio..."
+                    onkeyup="renderPortfolioGrid()">
+
+                <select
+                    id="statusFilter"
+                    onchange="renderPortfolioGrid()">
+
+                    <option value="Enabled" selected>
+                        Enabled
+                    </option>
+
+                    <option value="Disabled">
+                        Disabled
+                    </option>
+
+                    <option value="All">
+                        All
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div
+                id="portfolioCount"
+                style="
+                    margin-bottom:10px;
+                    font-size:14px;
+                    color:#666;">
+
+            </div>
+
+
+            <table
+                class="data-table">
+
+                <thead>
+
+                    <tr>
+
+                        <th>
+                            Portfolio Name
+                        </th>
+
+                        <th>
+                            Type
+                        </th>
+
+                        <th>
+                            Description
+                        </th>
+
+                        <th>
+                            Enabled
+                        </th>
+
+                        <th>
+                            Updated
+                        </th>
+
+                        <th>
+                            Actions
+                        </th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody
+                    id="portfolioGrid">
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+        <div id="footer"></div>
+
+    </div>
+
+    <div
+        id="portfolioModal"
+        class="modal">
+
+        <div
+            class="modal-content">
+
+            <h2>
+                Portfolio
+            </h2>
+
+            <input
+                type="hidden"
+                id="portfolioId">
+
+            <div class="form-row">
+
+                <label>
+                    Portfolio Name
+                </label>
+
+                <input
+                    id="portfolioName">
+
+            </div>
+
+            <div class="form-row">
+
+                <label>
+                    Portfolio Type
+                </label>
+
+                <select
+                    id="portfolioType">
+
+                </select>
+
+            </div>
+
+            <div class="form-row">
+
+                <label>
+                    Description
+                </label>
+
+                <textarea
+                    id="description">
+
+                </textarea>
+
+            </div>
+
+            <div class="form-row">
+
+                <label>
+
+                    <input
+                        type="checkbox"
+                        id="enabled"
+                        checked>
+
+                    Enabled
+
+                </label>
+
+            </div>
+
+            <button
+                class="btn btn-primary"
+                onclick="savePortfolio()">
+
+                Save
+
+            </button>
+
+            <button
+                class="btn btn-secondary"
+                onclick="closeModal('portfolioModal')">
+
+                Cancel
+
+            </button>
+
+        </div>
+
+    </div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <script src="../js/config.js"></script>
+    <script src="../js/supabase.js"></script>
+    <script src="../js/auth.js"></script>
+    <script src="../js/navigation.js"></script>
+    <script src="../js/components.js"></script>
+    <script src="../js/masters.js"></script>
+    <script src="../js/app.js"></script>
+    <script src="../js/portfolio.js"></script>
+
+</body>
+
+</html>
