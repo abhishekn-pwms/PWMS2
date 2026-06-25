@@ -267,6 +267,25 @@ grid-template-columns:
     margin-bottom: 15px;
 }
 
+
+/* ==================================
+   v1.1UI TIME FIELDS ROW
+================================== */
+
+.time-row {
+
+    display: flex;
+
+    gap: 12px;
+}
+
+.time-row > div {
+
+    flex: 1;
+}
+
+
+
 .form-row label {
 
     display: block;
