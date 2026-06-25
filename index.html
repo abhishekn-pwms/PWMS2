@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>PWMS2 Dashboard</title>
+
+    <script src="js/auth.js"></script>
+
+</head>
+
+<body>
+
+    <script>
+
+        if (!checkAuthentication()) {
+
+            window.location.href =
+                "login.html";
+        }
+
+    </script>
+
+    <h1>PWMS2 Dashboard</h1>
+
+    <p>
+        Login Successful
+    </p>
+
+    <button onclick="logout()">
+        Logout
+    </button>
+
+</body>
+
+</html>
