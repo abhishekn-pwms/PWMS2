@@ -148,7 +148,8 @@ function applyPeriodFilter() {
         "toDate"
     ).value = toDate;
 
-    renderTaskLogGrid();
+    renderTaskLogFeed();
+
 }
 
 async function loadActivities() {
@@ -404,7 +405,7 @@ async function loadTaskLogs() {
         return;
     }
 
-    renderTaskLogGrid();
+    renderTaskLogFeed();
 }
 
 function renderTaskLogGrid() {
@@ -625,6 +626,162 @@ function renderTaskLogGrid() {
         `;
     });
 }
+
+
+
+/* ==================================
+   v1.2UI LOG CARD LAYOUT
+================================== */
+
+function renderTaskLogFeed() {
+
+    const feed =
+        document.getElementById(
+            "taskLogFeed"
+        );
+
+    if (!feed) {
+        return;
+    }
+
+    feed.innerHTML = "";
+
+    const rows =
+        [...taskLogData]
+            .sort(
+                (a, b) => {
+
+                    const dateCompare =
+                        b.task_date
+                            .localeCompare(
+                                a.task_date
+                            );
+
+                    if (dateCompare !== 0) {
+                        return dateCompare;
+                    }
+
+                    return (
+                        (b.start_time || "")
+                            .localeCompare(
+                                a.start_time || ""
+                            )
+                    );
+                }
+            );
+
+    if (rows.length === 0) {
+
+        feed.innerHTML =
+            "<p>No task logs found</p>";
+
+        return;
+    }
+
+    let currentDate = "";
+
+    rows.forEach(item => {
+
+        if (
+            currentDate !==
+            item.task_date
+        ) {
+
+            currentDate =
+                item.task_date;
+
+            feed.innerHTML += `
+                <div
+                    class="task-date-header">
+
+                    ${formatDate(
+                        item.task_date
+                    )}
+
+                </div>
+
+                <div
+                    class="task-date-group"
+                    id="date-${item.task_date}">
+                </div>
+            `;
+        }
+
+        const duration =
+
+            item.start_time &&
+            item.end_time
+
+                ?
+
+                `${item.minutes_spent || 0} min
+                -->
+                ${formatTime(item.start_time)}
+                -
+                ${formatTime(item.end_time)}`
+
+                :
+
+                `${item.minutes_spent || 0} min`;
+
+        const dateGroup =
+            document.getElementById(
+                `date-${item.task_date}`
+            );
+
+        dateGroup.innerHTML += `
+
+            <div class="task-card">
+
+                <div
+                    class="task-duration">
+
+                    ${duration}
+
+                </div>
+
+                <div
+                    class="task-description">
+
+                    ${item.task_description || ""}
+
+                </div>
+
+                <div
+                    class="task-activity">
+
+                    ${item.activity_name || ""}
+
+                </div>
+
+                <div
+                    class="task-actions">
+
+                    <button
+                        class="btn btn-primary"
+                        onclick="editTaskLog('${item.task_log_id}')">
+
+                        Edit
+
+                    </button>
+
+                    <button
+                        class="btn btn-danger"
+                        onclick="deleteTaskLog('${item.task_log_id}')">
+
+                        Delete
+
+                    </button>
+
+                </div>
+
+            </div>
+        `;
+    });
+}
+
+
+
 
 function updateCharacterCount() {
 
