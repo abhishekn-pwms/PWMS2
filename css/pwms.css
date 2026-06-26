@@ -462,3 +462,100 @@ grid-template-columns:
         width: 90%;
     }
 }
+
+
+
+/* ==================================
+   v1.2UI TASK LOG FEED
+================================== */
+
+.task-date-header {
+
+    margin-top: 25px;
+
+    margin-bottom: 15px;
+
+    padding-bottom: 6px;
+
+    border-bottom:
+        2px solid #1f4e79;
+
+    font-size: 18px;
+
+    font-weight: bold;
+
+    color: #1f4e79;
+}
+
+
+.task-date-group {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(
+                220px,
+                1fr
+            )
+        );
+
+    gap: 12px;
+
+    margin-bottom: 25px;
+}
+
+
+.task-card {
+
+    background: white;
+
+    padding: 15px;
+
+    margin-bottom: 12px;
+
+    border-radius: 6px;
+
+    box-shadow:
+        0 1px 3px
+        rgba(0,0,0,0.1);
+}
+
+
+.task-duration {
+
+    font-size: 14px;
+
+    font-weight: bold;
+
+    color: #555;
+
+    margin-bottom: 8px;
+}
+
+
+.task-description {
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    margin-bottom: 6px;
+}
+
+
+.task-activity {
+
+    color: #666;
+
+    margin-bottom: 12px;
+}
+
+
+.task-actions {
+
+    display: flex;
+
+    gap: 10px;
+}
