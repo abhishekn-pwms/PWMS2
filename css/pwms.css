@@ -654,3 +654,47 @@ grid-template-columns:
     }
 
 }
+
+.mobile-stack {
+
+    display: flex;
+
+    gap: 12px;
+}
+
+/* ==================================
+   v1.3aUI MOBILE ENTRY MODAL
+================================== */
+
+@media (max-width:768px) {
+
+    .mobile-stack {
+
+        flex-direction: column;
+    }
+
+    .mobile-stack > div {
+
+        width: 100%;
+    }
+
+    .time-row {
+
+        flex-wrap: nowrap;
+    }
+
+    .time-row > div {
+
+        flex: 1;
+    }
+
+}
+
+@media (max-width:768px) {
+
+    .task-date-group {
+
+        grid-template-columns: 1fr;
+    }
+
+}
