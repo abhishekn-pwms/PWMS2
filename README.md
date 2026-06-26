@@ -1,5 +1,6 @@
 Date : 26-Jun-2026
 ------------------
+* Release PWMS v1.2bUI TASK LOG FEED & MODAL REDESIGN
 * Release PWMS v1.2aUI TASK LOG FEED
 * Release PWMS v1.1UI with UI Menu Hide & Time Fields Calculation & Row
 
