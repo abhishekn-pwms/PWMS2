@@ -698,3 +698,88 @@ grid-template-columns:
     }
 
 }
+
+
+/* ==================================
+   v1.3bUI CSS RELEASE
+   TOUCH-FIRST MOBILE
+================================== */
+
+.mobile-device .task-date-group {
+
+    grid-template-columns:
+        1fr;
+}
+
+
+.mobile-device .task-card {
+
+    padding: 18px;
+}
+
+
+.mobile-device .task-duration {
+
+    font-size: 16px;
+}
+
+
+.mobile-device .task-description {
+
+    font-size: 18px;
+}
+
+
+.mobile-device .task-activity {
+
+    font-size: 15px;
+}
+
+
+.mobile-device .btn {
+
+    padding: 14px 18px;
+
+    font-size: 16px;
+}
+
+
+.mobile-device .menu-item,
+
+.mobile-device .menu-group-header {
+
+    padding: 18px 20px;
+
+    font-size: 18px;
+}
+
+
+.mobile-device .menu-toggle {
+
+    font-size: 30px;
+}
+
+
+.mobile-device
+.form-row input,
+
+.mobile-device
+.form-row select,
+
+.mobile-device
+.form-row textarea {
+
+    padding: 14px;
+
+    font-size: 16px;
+}
+
+
+.mobile-device .modal-content {
+
+    width: 95%;
+
+    max-width: none;
+
+    padding: 18px;
+}
