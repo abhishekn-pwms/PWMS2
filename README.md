@@ -1,9 +1,24 @@
 Date : 26-Jun-2026
 ------------------
-* v1.3aUI - Mobile Optimized Task Log Cards & Entry Modal
+* v1.3bUI Touch-First Mobile CSS Optimization
+
+v1.3bUI
+---------
+• Added device-based mobile detection
+• Optimized Task Log cards for mobile
+• Increased menu touch targets
+• Increased form control sizes
+• Increased button sizes
+• Enlarged mobile task cards
+• Applied mobile-first spacing improvements
+• No HTML or business logic changes
+
+
+
+* v1.3aUI Mobile Optimized Task Log Cards & Entry Modal
 
 v1.3aUI
-----------
+---------
 • Responsive Task Log card layout with date grouping
 • Compact Task Entry modal redesign
 • Mobile optimized modal sizing and layout
