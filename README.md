@@ -1,5 +1,17 @@
 Date : 26-Jun-2026
 ------------------
+* v1.3aUI - Mobile Optimized Task Log Cards & Entry Modal
+
+v1.3aUI
+----------
+• Responsive Task Log card layout with date grouping
+• Compact Task Entry modal redesign
+• Mobile optimized modal sizing and layout
+• Auto-focus description field
+• Collapsible Additional Details section
+• Improved activity search/reset behavior
+
+
 * Release PWMS v1.2bUI TASK LOG FEED & MODAL REDESIGN
 * Release PWMS v1.2aUI TASK LOG FEED
 * Release PWMS v1.1UI with UI Menu Hide & Time Fields Calculation & Row
