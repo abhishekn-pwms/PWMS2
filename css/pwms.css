@@ -721,7 +721,7 @@ grid-template-columns:
 
 
 /* ==================================
-   v1.3bUI MOBILE CARD READABILITY
+   v1.3bUI MOBILE CARD READABILITY FONT
 ================================== */
 
 .mobile-device .task-card {
@@ -734,7 +734,7 @@ grid-template-columns:
 
 .mobile-device .task-duration {
 
-    font-size: 18px;
+    font-size: 20px;
 
     font-weight: bold;
 
@@ -758,7 +758,7 @@ grid-template-columns:
 
 .mobile-device .task-activity {
 
-    font-size: 20px;
+    font-size: 22px;
 
     line-height: 1.4;
 
@@ -768,7 +768,7 @@ grid-template-columns:
 
 .mobile-device .task-actions .btn {
 
-    font-size: 22px;
+    font-size: 18px;
 
     padding: 10px 14px;
 }
@@ -776,7 +776,7 @@ grid-template-columns:
 
 .mobile-device .task-date-header {
 
-    font-size: 26px;
+    font-size: 24px;
 
     margin-top: 20px;
 
@@ -788,7 +788,7 @@ grid-template-columns:
 
     padding: 14px 18px;
 
-    font-size: 20px;
+    font-size: 18px;
 }
 
 
@@ -804,7 +804,7 @@ grid-template-columns:
 
 .mobile-device .menu-toggle {
 
-    font-size: 45px;
+    font-size: 40px;
 }
 
 
