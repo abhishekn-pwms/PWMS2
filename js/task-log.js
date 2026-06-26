@@ -715,10 +715,10 @@ function renderTaskLogFeed() {
                 ?
 
                 `${item.minutes_spent || 0} min
-                -->
+                --> [
                 ${formatTime(item.start_time)}
                 -
-                ${formatTime(item.end_time)}`
+                ${formatTime(item.end_time)} ]`
 
                 :
 
@@ -796,6 +796,7 @@ function updateCharacterCount() {
         `${text.length} / 1000`;
 }
 
+
 function newTaskLog() {
 
     document.getElementById(
@@ -834,6 +835,7 @@ function newTaskLog() {
 
     updateCharacterCount();
 
+    resetActivitySearch();
 
     document.getElementById(
         "activityId"
@@ -842,9 +844,19 @@ function newTaskLog() {
     activityChanged();
 
 
+    document.getElementById(
+        "taskLogOptional"
+    ).open = false;
+
+
     openModal(
         "taskLogModal"
     );
+
+    document.getElementById(
+        "taskDescription"
+    ).focus();
+
 }
 
 function editTaskLog(id) {
@@ -858,6 +870,7 @@ function editTaskLog(id) {
     if (!item) {
         return;
     }
+
 
     document.getElementById(
         "taskLogId"
@@ -875,6 +888,8 @@ function editTaskLog(id) {
         "taskDescription"
     ).value =
         item.task_description || "";
+
+    resetActivitySearch();
 
     document.getElementById(
         "activityId"
@@ -900,9 +915,19 @@ function editTaskLog(id) {
 
     activityChanged();
 
+
+    document.getElementById(
+        "taskLogOptional"
+    ).open = false;
+
     openModal(
         "taskLogModal"
     );
+
+    document.getElementById(
+        "taskDescription"
+    ).focus();
+
 }
 
 async function saveTaskLog() {
@@ -1183,7 +1208,7 @@ function calculateTimeFields() {
 
 
     // -------------------------
-    // Start + End --> Minutes
+    // Start + End -> Minutes
     // -------------------------
 
     if (
@@ -1213,7 +1238,7 @@ function calculateTimeFields() {
 
 
     // -------------------------
-    // Start + Minutes --> End
+    // Start + Minutes -> End
     // -------------------------
 
     if (
@@ -1245,7 +1270,7 @@ function calculateTimeFields() {
 
 
     // -------------------------
-    // End + Minutes --> Start
+    // End + Minutes -> Start
     // -------------------------
 
     if (
@@ -1273,6 +1298,24 @@ function calculateTimeFields() {
 
     }
 
+}
+
+
+
+/* ==================================
+   v1.1bUI SEARCH CLEAR HELPER
+================================== */
+
+function resetActivitySearch() {
+
+    document.getElementById(
+        "activitySearch"
+    ).value = "";
+
+    filteredActivityData =
+        [...activityData];
+
+    populateActivityDropdown();
 }
 
 
