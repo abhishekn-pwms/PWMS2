@@ -734,7 +734,7 @@ grid-template-columns:
 
 .mobile-device .task-duration {
 
-    font-size: 16px;
+    font-size: 18px;
 
     font-weight: bold;
 
@@ -744,7 +744,7 @@ grid-template-columns:
 
 .mobile-device .task-description {
 
-    font-size: 20px;
+    font-size: 22px;
 
     font-weight: bold;
 
@@ -758,7 +758,7 @@ grid-template-columns:
 
 .mobile-device .task-activity {
 
-    font-size: 16px;
+    font-size: 20px;
 
     line-height: 1.4;
 
@@ -768,7 +768,7 @@ grid-template-columns:
 
 .mobile-device .task-actions .btn {
 
-    font-size: 15px;
+    font-size: 22px;
 
     padding: 10px 14px;
 }
@@ -776,7 +776,7 @@ grid-template-columns:
 
 .mobile-device .task-date-header {
 
-    font-size: 22px;
+    font-size: 26px;
 
     margin-top: 20px;
 
@@ -788,7 +788,7 @@ grid-template-columns:
 
     padding: 14px 18px;
 
-    font-size: 16px;
+    font-size: 20px;
 }
 
 
@@ -798,13 +798,13 @@ grid-template-columns:
 
     padding: 18px 20px;
 
-    font-size: 18px;
+    font-size: 30px;
 }
 
 
 .mobile-device .menu-toggle {
 
-    font-size: 30px;
+    font-size: 45px;
 }
 
 
@@ -819,7 +819,7 @@ grid-template-columns:
 
     padding: 14px;
 
-    font-size: 16px;
+    font-size: 20px;
 }
 
 
