@@ -15,6 +15,28 @@ const APP_BASE = (() => {
 })();
 
 
+/* ==================================
+   v1.3bUI DETECT MOBILE DEVICE
+================================== */
+
+const IS_MOBILE_DEVICE =
+
+    /Android|iPhone|iPad|iPod/i
+        .test(
+            navigator.userAgent
+        );
+
+if (IS_MOBILE_DEVICE) {
+
+    document.documentElement
+        .classList
+        .add(
+            "mobile-device"
+        );
+}
+
+
+
 function initializeAppIcon() {
 
     let favicon =
