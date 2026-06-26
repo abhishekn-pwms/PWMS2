@@ -715,7 +715,7 @@ function renderTaskLogFeed() {
                 ?
 
                 `${item.minutes_spent || 0} min
-                > [
+                </br>[
                 ${formatTime(item.start_time)}
                 -
                 ${formatTime(item.end_time)} ]`
