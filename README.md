@@ -1,17 +1,18 @@
 Date : 26-Jun-2026
 ------------------
-* v1.3bUI Touch-First Mobile CSS Optimization
+* Release PWMS v1.3bUI Touch-First Mobile CSS Optimization FONT
 
 v1.3bUI
 ---------
 Implemented:
 • Device-based mobile detection
+• Larger Card Text
 • Larger touch targets
 • Larger menu items
 • Larger form controls
 • Larger buttons
 • Larger modal spacing
-• Improved task card readability
+• Larger Task Card Text for Improved readability
 
 Evaluated:
 • Single-column mobile card layout
