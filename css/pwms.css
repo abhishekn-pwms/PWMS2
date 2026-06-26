@@ -559,3 +559,53 @@ grid-template-columns:
 
     gap: 10px;
 }
+
+
+/* ==================================
+   v1.2bUI TASK LOG ENTRY OPTIONAL DETAILS
+================================== */
+
+.optional-section {
+
+    margin-top: 15px;
+
+    border-top:
+        1px solid #ddd;
+
+    padding-top: 10px;
+}
+
+
+.optional-section summary {
+
+    cursor: pointer;
+
+    font-weight: bold;
+
+    color: #1f4e79;
+
+    padding: 8px 0;
+
+    user-select: none;
+}
+
+.optional-content {
+
+    margin-top: 10px;
+}
+
+.modal-actions {
+
+    display: flex;
+
+    justify-content: flex-end;
+
+    gap: 10px;
+
+    margin-top: 20px;
+
+    border-top:
+        1px solid #ddd;
+
+    padding-top: 15px;
+}
