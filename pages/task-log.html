@@ -5,7 +5,7 @@
 <head>
 
     <title>
-        Task Log 1.2aUI
+        Task Log 1.2bUI
     </title>
 
     <link
@@ -27,7 +27,7 @@
             <div class="page-header">
 
                 <div class="page-title">
-                    Task Log v1.2aUI Log Cards
+                    Task Log v1.2bUI Log Cards & Modal
                 </div>
 
                 <button
@@ -220,23 +220,31 @@ v1.2UI LOG CARDS END
                 type="hidden"
                 id="taskLogId">
 
+
+
+<!--
+v1.2bUI LOG MODAL REDESIGN
+-->
             <div class="form-row">
 
-                <label>
-                    Task Date
-                </label>
+                <div
+                    style="
+                        display:flex;
+                        justify-content:space-between;
+                        align-items:center;">
 
-                <input
-                    type="date"
-                    id="taskDate">
+                    <label>
+                        Task Description
+                    </label>
 
-            </div>
+                    <small
+                        id="charCount">
 
-            <div class="form-row">
+                        0 / 1000
 
-                <label>
-                    Task Description
-                </label>
+                    </small>
+
+                </div>
 
                 <textarea
                     id="taskDescription"
@@ -245,42 +253,43 @@ v1.2UI LOG CARDS END
 
                 </textarea>
 
-                <small
-                    id="charCount">
-
-                    0 / 1000
-
-                </small>
-
             </div>
 
-            <div class="form-row">
 
-                <label>
-                    Search Activity
-                </label>
+<div
+    class="form-row time-row">
 
-                <input
-                    type="text"
-                    id="activitySearch"
-                    placeholder="Search Activity..."
-                    onkeyup="filterActivities()">
+    <div>
 
-            </div>
+        <label>
+            Activity
+        </label>
 
-            <div class="form-row">
+        <select
+            id="activityId"
+            onchange="activityChanged()">
 
-                <label>
-                    Activity
-                </label>
+        </select>
 
-                <select
-                    id="activityId"
-                    onchange="activityChanged()">
+    </div>
 
-                </select>
 
-            </div>
+    <div>
+
+        <label>
+            Search Activity
+        </label>
+
+        <input
+            type="text"
+            id="activitySearch"
+            placeholder="Search..."
+            onkeyup="filterActivities()">
+
+    </div>
+
+</div>
+
 
             <div class="form-row">
 
@@ -291,10 +300,11 @@ v1.2UI LOG CARDS END
                 <div
                     id="activityContext"
                     style="
-                        padding:8px;
+                        padding:5px;
                         background:#f8f9fa;
                         border:1px solid #ddd;
-                        border-radius:4px;">
+                        border-radius:4px;
+                        font-size:13px;">
 
                     Select Activity
 
@@ -308,58 +318,76 @@ v1.2UI LOG CARDS END
 
                 <hr>
 
-                <h3>
+
+<!--
+v1.2bUI LOG MODAL ACTIVITY ENTRY REDESIGN
+-->
+
+                <h4
+                    style="margin:10px 0;">
                     New Activity
-                </h3>
+                </h4>
 
-                <div class="form-row">
 
-                    <label>
-                        Activity Name
-                    </label>
+<div
+    class="form-row time-row">
 
-                    <input
-                        id="newActivityName">
+    <div>
 
-                </div>
+        <label>
+            Activity Name
+        </label>
 
-                <div class="form-row">
+        <input
+            id="newActivityName">
 
-                    <label>
-                        Milestone
-                    </label>
+    </div>
 
-                    <select
-                        id="newActivityMilestone">
+    <div>
 
-                    </select>
+        <label>
+            Milestone
+        </label>
 
-                </div>
+        <select
+            id="newActivityMilestone">
 
-                <div class="form-row">
+            </select>
 
-                    <label>
-                        Target Date
-                    </label>
+    </div>
 
-                    <input
-                        type="date"
-                        id="newActivityTargetDate">
+</div>
 
-                </div>
+<div
+    class="form-row time-row">
 
-                <div class="form-row">
+    <div>
 
-                    <label>
-                        Priority
-                    </label>
+        <label>
+            Target Date
+        </label>
 
-                    <select
-                        id="newActivityPriority">
+        <input
+            type="date"
+            id="newActivityTargetDate">
 
-                    </select>
+    </div>
 
-                </div>
+    <div>
+
+        <label>
+            Priority
+        </label>
+
+        <select
+            id="newActivityPriority">
+
+            </select>
+
+    </div>
+
+</div>
+
 
             </div>
 
@@ -373,7 +401,19 @@ v1.1UI TIME FIELDS ROW
     <div>
 
         <label>
-            Start Time
+            Date
+        </label>
+
+        <input
+            type="date"
+            id="taskDate">
+
+    </div>
+
+    <div>
+
+        <label>
+            Start
         </label>
 
         <input
@@ -386,7 +426,7 @@ v1.1UI TIME FIELDS ROW
     <div>
 
         <label>
-            Minutes
+            Min
         </label>
 
         <input
@@ -401,7 +441,7 @@ v1.1UI TIME FIELDS ROW
     <div>
 
         <label>
-            End Time
+            End
         </label>
 
         <input
@@ -414,28 +454,64 @@ v1.1UI TIME FIELDS ROW
 </div>
 
 
-            <div class="form-row"><label><input
-                        type="checkbox"
-                        id="markActivityCompleted">Mark Activity Completed
-                </label>
 
-            </div>
 
-            <button
-                class="btn btn-primary"
-                onclick="saveTaskLog()">
 
-                Save
+<!--
+v1.1bUI COLLAPSE MARK COMPLETE SECTION
+-->
+<details
+    id="taskLogOptional" 
+    class="optional-section">
 
-            </button>
+    <summary>
 
-            <button
-                class="btn btn-secondary"
-                onclick="closeModal('taskLogModal')">
+        Additional Details
 
-                Cancel
+    </summary>
 
-            </button>
+    <div
+        class="optional-content">
+
+        <div class="form-row">
+
+            <label>
+
+                <input
+                    type="checkbox"
+                    id="markActivityCompleted">
+
+                Mark Activity Completed
+
+            </label>
+
+        </div>
+
+    </div>
+
+</details>
+
+
+<div
+    class="modal-actions">
+
+    <button
+        class="btn btn-primary"
+        onclick="saveTaskLog()">
+
+        Save
+
+    </button>
+
+    <button
+        class="btn btn-secondary"
+        onclick="closeModal('taskLogModal')">
+
+        Cancel
+
+    </button>
+
+</div>
 
         </div>
 
