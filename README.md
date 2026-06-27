@@ -13,7 +13,7 @@ v1.4UI
 • Standardized modal sizing and spacing for mobile devices.
 • Established separate mobile UI patterns for Task Log (card-based) and Master/Review pages (table-based).
 • Added table-container wrappers to Portfolio, Project, Milestone, Activity and Review pages.
-• Increased text & button sizes sizes in Login Page.
+• Increased text & button sizes in Login Page.
 
 
 ---------
