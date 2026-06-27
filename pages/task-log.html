@@ -5,7 +5,7 @@
 <head>
 
     <title>
-        Task Log 1.3bUI
+        Task Log 1.3cUI
     </title>
 
     <link
@@ -27,7 +27,7 @@
             <div class="page-header">
 
                 <div class="page-title">
-                    Task Log --> v1.3bUI Touch-First Mobile CSS Optimization
+                    Task Log --> v1.3cUI Filter Logic For Task Logs & Search Field Clear
                 </div>
 
                 <button
@@ -43,22 +43,22 @@
             <div class="toolbar">
 
                 <input
-                    type="text"
+                    type="search"
                     id="searchText"
                     class="search-box"
                     placeholder="Search Task Description..."
-                    onkeyup="renderTaskLogGrid()">
+                    onkeyup="refreshTaskLogView()">
 
                 <select
                     id="periodFilter"
-                    onchange="applyPeriodFilter()">
-
-                    <option value="This Week">
-                        This Week
-                    </option>
+                    onchange="refreshTaskLogView()">
 
                     <option value="Today">
                         Today
+                    </option>
+
+                    <option value="This Week">
+                        This Week
                     </option>
 
                     <option value="This Month">
@@ -74,16 +74,16 @@
                 <input
                     type="date"
                     id="fromDate"
-                    onchange="renderTaskLogGrid()">
+                    onchange="refreshTaskLogView()">
 
                 <input
                     type="date"
                     id="toDate"
-                    onchange="renderTaskLogGrid()">
+                    onchange="refreshTaskLogView()">
 
                 <select
                     id="activityStatusFilter"
-                    onchange="renderTaskLogGrid()">
+                    onchange="refreshTaskLogView()">
 
                 </select>
 
@@ -281,7 +281,7 @@ v1.2bUI LOG MODAL REDESIGN
         </label>
 
         <input
-            type="text"
+            type="search"
             id="activitySearch"
             placeholder="Search..."
             onkeyup="filterActivities()">
