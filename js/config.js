@@ -60,6 +60,7 @@ function initializeAppIcon() {
 function appUrl(path) {
 
     return APP_BASE + path;
+    
 }
 
 
@@ -74,9 +75,8 @@ function isMobile() {
 
 function getDefaultLandingPage() {
 
-    return isMobile()
-        ? "/pages/task-log.html"
-        : "/pages/dashboard.html";
+    return "/pages/task-log.html";
+
 }
 
 
