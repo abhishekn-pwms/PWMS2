@@ -52,12 +52,12 @@ function initializeDateFilters() {
     ).value =
         "This Week";
 
-    applyPeriodFilter();
+    refreshTaskLogView();
 }
 
 
 
-function applyPeriodFilter() {
+function refreshTaskLogView() {
 
     const period =
         document.getElementById(
@@ -86,7 +86,6 @@ function applyPeriodFilter() {
     ) {
 
 
-
         const start =
             new Date(today);
 
@@ -102,7 +101,6 @@ function applyPeriodFilter() {
             today.getDate() +
             mondayOffset
         );
-
 
 
         fromDate =
@@ -148,6 +146,8 @@ function applyPeriodFilter() {
         "toDate"
     ).value = toDate;
 
+    //renderTaskLogGrid();
+
     renderTaskLogFeed();
 
 }
@@ -188,7 +188,6 @@ function populateActivityDropdown() {
         document.getElementById(
             "activityId"
         );
-
 
 
     dropdown.innerHTML = `
@@ -406,7 +405,130 @@ async function loadTaskLogs() {
     }
 
     renderTaskLogFeed();
+
 }
+
+
+/* ==================================
+   v1.3cUI FILTER LOGIC FOR TASK LOGS
+================================== */
+
+function getFilteredTaskLogs() {
+
+    const search =
+        document
+            .getElementById(
+                "searchText"
+            )
+            .value
+            .toLowerCase();
+
+    const fromDate =
+        document.getElementById(
+            "fromDate"
+        ).value;
+
+    const toDate =
+        document.getElementById(
+            "toDate"
+        ).value;
+
+    const activityStatus =
+        document.getElementById(
+            "activityStatusFilter"
+        ).value;
+
+    return taskLogData.filter(item => {
+
+        const matchesSearch =
+
+            (item.task_description || "")
+                .toLowerCase()
+                .includes(search)
+
+            ||
+
+            (item.activity_name || "")
+                .toLowerCase()
+                .includes(search);
+
+        let matchesDate =
+            true;
+
+        if (fromDate) {
+
+            matchesDate =
+                item.task_date >=
+                fromDate;
+        }
+
+        if (
+            matchesDate &&
+            toDate
+        ) {
+
+            matchesDate =
+                item.task_date <=
+                toDate;
+        }
+
+        let matchesStatus =
+            true;
+
+        if (
+            activityStatus !==
+            "All"
+        ) {
+
+            matchesStatus =
+                item.activity_status ===
+                activityStatus;
+        }
+
+        return (
+            matchesSearch &&
+            matchesDate &&
+            matchesStatus
+        );
+    });
+}
+
+
+/* ==================================
+   v1.3cUI TOTAL RECORDS SECTION
+================================== */
+
+function updateTaskLogSummary(rows) {
+
+    document.getElementById(
+        "totalRecords"
+    ).textContent =
+        `Total Records: ${rows.length}`;
+
+    const totalMinutes =
+        rows.reduce(
+            (sum, row) =>
+                sum +
+                (row.minutes_spent || 0),
+            0
+        );
+
+    document.getElementById(
+        "totalMinutes"
+    ).textContent =
+        `Total Minutes: ${totalMinutes}`;
+
+    document.getElementById(
+        "totalHours"
+    ).textContent =
+        `Total Hours: ${
+            (totalMinutes / 60)
+                .toFixed(1)
+        }`;
+}
+
+
+
 
 function renderTaskLogGrid() {
 
@@ -438,88 +560,14 @@ function renderTaskLogGrid() {
             "activityStatusFilter"
         ).value;
 
+
     const rows =
-        taskLogData.filter(item => {
+        getFilteredTaskLogs();
 
-            const matchesSearch =
 
-                (item.task_description || "")
-                    .toLowerCase()
-                    .includes(search)
-
-                ||
-
-                (item.activity_name || "")
-                    .toLowerCase()
-                    .includes(search);
-
-            let matchesDate =
-                true;
-
-            if (
-                fromDate
-            ) {
-
-                matchesDate =
-                    item.task_date >=
-                    fromDate;
-            }
-
-            if (
-                matchesDate &&
-                toDate
-            ) {
-
-                matchesDate =
-                    item.task_date <=
-                    toDate;
-            }
-
-            let matchesStatus =
-                true;
-
-            if (
-                activityStatus !==
-                "All"
-            ) {
-
-                matchesStatus =
-                    item.activity_status ===
-                    activityStatus;
-            }
-
-            return (
-                matchesSearch
-                &&
-                matchesDate
-                &&
-                matchesStatus
-            );
-
-        });
-
-    document.getElementById(
-        "totalRecords"
-    ).textContent =
-        `Total Records: ${rows.length}`;
-
-    const totalMinutes =
-        rows.reduce(
-            (sum, row) =>
-                sum +
-                (row.minutes_spent || 0),
-            0
-        );
-
-    document.getElementById(
-        "totalMinutes"
-    ).textContent =
-        `Total Minutes: ${totalMinutes}`;
-
-    document.getElementById(
-        "totalHours"
-    ).textContent =
-        `Total Hours: ${(totalMinutes / 60).toFixed(1)}`;
+    updateTaskLogSummary(
+        rows
+    );
 
     grid.innerHTML = "";
 
@@ -628,7 +676,6 @@ function renderTaskLogGrid() {
 }
 
 
-
 /* ==================================
    v1.2UI LOG CARD LAYOUT
 ================================== */
@@ -647,7 +694,7 @@ function renderTaskLogFeed() {
     feed.innerHTML = "";
 
     const rows =
-        [...taskLogData]
+        [...getFilteredTaskLogs()]
             .sort(
                 (a, b) => {
 
@@ -669,6 +716,11 @@ function renderTaskLogFeed() {
                     );
                 }
             );
+
+    updateTaskLogSummary(
+        rows
+    );
+
 
     if (rows.length === 0) {
 
@@ -1317,7 +1369,6 @@ function resetActivitySearch() {
 
     populateActivityDropdown();
 }
-
 
 
 document.addEventListener(
