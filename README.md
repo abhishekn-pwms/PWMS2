@@ -2,6 +2,34 @@ Date : 27-Jun-2026
 
 \------------------
 
+
+
+Release PWMS v1.4UI Mobile CSS Foundation Framework \& Text Sizes
+
+
+
+• Standardized mobile-device based styling across PWMS.
+
+• Increased mobile menu, button and form control sizes.
+
+• Added mobile-friendly page titles, toolbars and search controls.
+
+• Introduced responsive mobile table framework using table-container wrappers.
+
+• Improved dashboard card readability on mobile.
+
+• Standardized modal sizing and spacing for mobile devices.
+
+• Established separate mobile UI patterns for Task Log (card-based) and Master/Review pages (table-based).
+
+• Added table-container wrappers to Portfolio, Project, Milestone, Activity and Review pages.
+
+
+
+
+
+\---------
+
 \* Release PWMS v1.3cUI Filter Logic For Task Logs \& Search Field Clear
 
 
