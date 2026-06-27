@@ -831,3 +831,108 @@ grid-template-columns:
 
     padding: 18px;
 }
+
+
+/* ==================================
+   v1.4UI MOBILE CSS FOUNDATION
+================================== */
+
+/* Page Titles */
+
+.mobile-device .page-title {
+
+    font-size: 28px;
+}
+
+
+/* Toolbar */
+
+.mobile-device .toolbar {
+
+    flex-wrap: wrap;
+
+    gap: 12px;
+}
+
+
+/* Search */
+
+.mobile-device .search-box {
+
+    width: 100%;
+
+    font-size: 18px;
+
+    padding: 14px;
+}
+
+
+/* Filters */
+
+.mobile-device .toolbar select {
+
+    font-size: 18px;
+
+    padding: 14px;
+}
+
+
+/* Tables */
+
+.mobile-device .data-table {
+
+    font-size: 18px;
+}
+
+
+.mobile-device .data-table th {
+
+    font-size: 18px;
+
+    padding: 14px;
+}
+
+
+.mobile-device .data-table td {
+
+    font-size: 18px;
+
+    padding: 14px;
+}
+
+
+/* Dashboard Cards */
+
+.mobile-device .form-card {
+
+    padding: 24px;
+}
+
+
+.mobile-device .form-card h2 {
+
+    font-size: 30px;
+}
+
+
+/* Section Headers */
+
+.mobile-device .section-header {
+
+    font-size: 22px;
+
+    margin-top: 20px;
+
+    margin-bottom: 15px;
+}
+
+/* ==================================
+   v1.4UI MOBILE TABLES
+================================== */
+
+.mobile-device .table-container {
+
+    overflow-x: auto;
+
+    width: 100%;
+}
