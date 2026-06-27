@@ -241,7 +241,9 @@ function renderMilestoneGrid() {
             </td>
 
             <td>
+                <font style="font-size:20px;font-weight:bold;">
                 ${item.milestone_name}
+                </font>
             </td>
 
             <td>
@@ -272,11 +274,13 @@ function renderMilestoneGrid() {
                 ${item.enabled ? "Yes" : "No"}
             </td>
 
+<!--
             <td>
                 ${formatDateTime(
                     item.updated_at
                 )}
             </td>
+-->
 
             <td>
                 ${item.enabled

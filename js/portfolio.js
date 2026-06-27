@@ -169,7 +169,9 @@ document.getElementById(
         <tr>
 
             <td>
+                <font style="font-size:20px;font-weight:bold;">
                 ${item.portfolio_name}
+                </font>
             </td>
 
             <td>
@@ -184,11 +186,13 @@ document.getElementById(
                 ${item.enabled ? "Yes" : "No"}
             </td>
 
+<!--
             <td>
                 ${formatDateTime(
                     item.updated_at
                 )}
             </td>
+-->
 
             <td>
 

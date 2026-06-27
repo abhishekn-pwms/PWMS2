@@ -245,7 +245,9 @@ return (
             </td>
 
             <td>
+                <font style="font-size:20px;font-weight:bold;">
                 ${item.project_name}
+                </font>
             </td>
 
             <td>
@@ -268,11 +270,13 @@ return (
                 ${item.enabled ? "Yes" : "No"}
             </td>
 
+<!--
             <td>
                 ${formatDateTime(
                     item.updated_at
                 )}
             </td>
+-->
 
             <td>
 
