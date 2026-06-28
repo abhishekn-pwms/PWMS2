@@ -601,6 +601,8 @@ grid-template-columns:
 
     justify-content: flex-start;
 
+    align-items: center;
+
     gap: 10px;
 
     margin-top: 20px;
@@ -936,4 +938,114 @@ grid-template-columns:
     overflow-x: auto;
 
     width: 100%;
+}
+
+
+/* ==================================
+   v1.5UI TODO FEED
+================================== */
+
+.todo-group-header {
+
+    margin-top: 25px;
+
+    margin-bottom: 15px;
+
+    padding-bottom: 6px;
+
+    border-bottom:
+        2px solid #1f4e79;
+
+    font-size: 18px;
+
+    font-weight: bold;
+
+    color: #1f4e79;
+}
+
+
+.todo-activity-header {
+
+    margin-top: 15px;
+
+    margin-bottom: 8px;
+
+    padding-left: 5px;
+
+    font-size: 15px;
+
+    font-weight: bold;
+
+    color: #444;
+}
+
+
+.todo-item {
+
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 10px;
+
+    padding: 8px 12px;
+
+    margin-bottom: 4px;
+
+    background: white;
+
+    border-radius: 4px;
+
+    box-shadow:
+        0 1px 2px
+        rgba(0,0,0,0.08);
+}
+
+
+.todo-checkbox {
+
+    cursor: pointer;
+
+    font-size: 18px;
+
+    user-select: none;
+
+    min-width: 22px;
+}
+
+
+.todo-text {
+
+    flex: 1;
+
+    cursor: pointer;
+
+    line-height: 1.4;
+}
+
+
+.todo-completed {
+
+    text-decoration:
+        line-through;
+
+    color: #888;
+}
+
+
+.todo-due {
+
+    font-size: 12px;
+
+    color: #777;
+
+    margin-left: 10px;
+}
+
+
+#deleteTodoButton:hover {
+
+    opacity: 0.7;
+
+    transform: scale(1.2);
 }
