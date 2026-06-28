@@ -1,10 +1,26 @@
-Date : 27-Jun-2026
+Date : Sun, 28-Jun-2026
+------------------
+
+Release PWMS v1.5 ToDo Module
+
+• Added ToDo management module with activity-linked tasks.
+• Added Create, Edit, Delete and Complete/Open toggle functionality.
+• Added Due Date and Notes support.
+• Added inline Activity creation from ToDo modal.
+• Added ToDo grouping by Due Date buckets and Activity.
+• Added search, status and activity filters.
+• Added Open, Completed and Overdue summary counters.
+• Implemented click-to-edit and checkbox-based completion workflow.
+• Added responsive ToDo feed UI for desktop and mobile.
+• Reused Task Log activity framework while maintaining modular architecture.
+• Added support for Unicode delete icon (&#128465;&#65039; / &#128465; / 🗑 / 🗑️).
+
+
+Date : Sat, 27-Jun-2026
 ------------------
 
 Release PWMS v1.4UI Mobile CSS Foundation Framework & Text Sizes
 
-v1.4UI
----------
 • Standardized mobile-device based styling across PWMS.
 • Increased mobile menu, button and form control sizes.
 • Added mobile-friendly page titles, toolbars and search controls.
@@ -30,7 +46,7 @@ v1.3cUI
 
 
 ------------------
-Date : 26-Jun-2026
+Date : Fri, 26-Jun-2026
 ------------------
 * Release PWMS v1.3bUI Touch-First Mobile CSS Optimization FONT
 
@@ -92,7 +108,7 @@ pages/task-log.html
 
 Release : PWMS v1.0 Stable with URL path Logic..
 
-Date : 26-Jun-2026
+Date : Fri, 26-Jun-2026
 
 Modules
 --------
