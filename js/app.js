@@ -85,6 +85,28 @@ function formatDate(value) {
 }
 
 
+function formatDateWithDay(value) {
+
+    if (!value) {
+        return "";
+    }
+
+    return new Date(value)
+        .toLocaleDateString(
+            "en-IN",
+            {
+                timeZone: "Asia/Kolkata",
+                weekday: "short",
+                day: "2-digit",
+                month: "short",
+                year: "numeric"
+            }
+        );
+}
+
+
+
+
 // Changed to handle 2 separate time renders.
 
 function formatTime(value) {

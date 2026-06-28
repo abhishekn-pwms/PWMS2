@@ -52,12 +52,12 @@ function initializeDateFilters() {
     ).value =
         "This Week";
 
-    refreshTaskLogView();
+    applyPeriodFilter();
 }
 
 
 
-function refreshTaskLogView() {
+function applyPeriodFilter() {
 
     const period =
         document.getElementById(
@@ -151,6 +151,15 @@ function refreshTaskLogView() {
     renderTaskLogFeed();
 
 }
+
+
+function refreshTaskLogView() {
+
+    renderTaskLogFeed();
+
+}
+
+
 
 async function loadActivities() {
 
@@ -746,7 +755,7 @@ function renderTaskLogFeed() {
                 <div
                     class="task-date-header">
 
-                    ${formatDate(
+                    ${formatDateWithDay(
                         item.task_date
                     )}
 
